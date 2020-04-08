@@ -7,15 +7,15 @@ Base = declarative_base()
 engine = create_engine('sqlite:///database.db', echo=True)
 
 app = Bottle()
-TEMPLATE_PATH.insert(0, 'app/views')
+TEMPLATE_PATH.insert(0, 'app/views/')
 plugin = sqlalchemy.Plugin(
-		engine,
-		Base.metadata,
-		keyword='db',
-		create=True,
-		commit=True,
-		use_kwargs=False
-	)
+    engine,
+    Base.metadata,
+    keyword='db',
+    create=True,
+    commit=True,
+    use_kwargs=False
+)
 
 app.install(plugin)
 
